@@ -79,9 +79,9 @@ export const createNewProject = async (form: ProjectForm, creatorId: string, tok
 export const fetchAllProjects = (category?: string | null, endCursor?: string | null) => {
     client.setHeader("x-api-key", apiKey)
 
-    // const categories = category == null ? categoryFilters : [category]
+    const categories = category == null ? categoryFilters : [category]
 
-    return makeGraphQLRequest(projectsQuery, { category, endCursor })
+    return makeGraphQLRequest(projectsQuery, { categories, endCursor })
 }
 
 export const getProjectDetails = (id: string) => {
