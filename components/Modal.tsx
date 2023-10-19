@@ -14,14 +14,14 @@ const Modal = ({ children }: { children: ReactNode }) => {
     }, [router])
 
     const handleClick = useCallback((e: React.MouseEvent) => {
-        if((e.target === overlay.current) && onDismiss){
+        if((e.target === overlay.current) && onDismiss) {
             onDismiss()
         }
     }, [onDismiss, overlay])
 
 
     return (
-        <div ref={overlay} className='modal' onClick={handleClick}>
+        <div ref={overlay} className='modal' onClick={(e) => handleClick(e)}>
             <button type='button' onClick={onDismiss} className='absolute top-4 right-8'>
                 <Image src='/close.svg' width={17} height={17} alt='close' />
             </button>
